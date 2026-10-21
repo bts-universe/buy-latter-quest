@@ -1,0 +1,6 @@
+{
+  "name": "BUY LATER QUEST｜購物冷靜期",
+  "description": "遊戲化的衝動購物管理網站・心動冒險公會。透過冷靜期倒數、任務圖鑑與RPG等級成就，培養理性消費習慣，保住荷包預算。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
