@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#211a36">
+  <meta name="description" content="給心動一點時間，讓每次購物決定都更安心。">
+  <title>BUY LATER QUEST｜購物冷靜期</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主要導覽">
+      <a class="brand" href="#hall" data-page="hall" aria-label="BUY LATER QUEST 冒險大廳">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span><strong>BUY LATER</strong><small>QUEST</small></span>
+      </a>
+      <div class="guild-label">冒險者公會 <span>✷</span></div>
+      <nav class="main-nav">
+        <button class="nav-link active" data-page="hall"><span>⌂</span> 冒險大廳</button>
+        <button class="nav-link" data-page="tasks"><span>▤</span> 任務圖鑑 <b id="nav-task-count">0</b></button>
+        <button class="nav-link" data-page="achievements"><span>♧</span> 成就室</button>
+        <button class="nav-link" data-page="history"><span>◷</span> 冒險紀錄</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="guide-card"><span class="guide-icon">✧</span><p>心動不用馬上決定，<br>先把它收進任務裡吧。</p><small>你的冒險，由你決定。</small></div>
+        <div class="privacy-note"><span>▣</span> 資料只儲存在這台裝置</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="mobile-brand"><span>✦</span> BUY LATER QUEST</div><div class="today-label" id="today-label"></div><button class="top-avatar" aria-label="冒險者">冒</button></header>
+      <section id="page-hall" class="page active-page">
+        <div class="welcome-row"><div><div class="eyebrow"><span class="status-dot"></span> 冒險大廳 <span class="eyebrow-line"></span> <span id="welcome-date"></span></div><h1>每個好決定，<span>都值得冒險。</span></h1><p class="welcome-copy">給心動一點時間，讓每次選擇都更靠近真正想要的生活。</p></div><button class="button primary new-task-trigger"><span>＋</span> 接受新任務</button></div>
+        <section class="hero-card" aria-label="冒險者等級與經驗值"><div class="hero-spark spark-one">✦</div><div class="hero-spark spark-two">✧</div><div class="hero-orb">✧</div><div class="hero-content"><div class="hero-kicker">YOUR JOURNEY BEGINS HERE</div><h2>慢一點，<br class="hero-break">更靠近想要的生活。</h2><p>每一次停下來思考，都是一次勇敢的選擇。</p><div class="level-wrap"><div class="level-badge"><span>LV.</span><strong id="level-number">01</strong></div><div class="level-info"><div class="level-caption"><span>旅程進度</span><span><b id="exp-current">0</b> / <span id="exp-next">100</span> EXP</span></div><div class="progress-track"><div id="exp-progress" class="progress-fill"></div></div><small id="level-hint">再完成一個決定，累積你的冒險經驗</small></div></div></div><div class="hero-art" aria-hidden="true"><div class="moon"></div><div class="hill hill-back"></div><div class="hill hill-front"></div><div class="pixel-tree tree-a">▲</div><div class="pixel-tree tree-b">▲</div><div class="pixel-chest"><span>✦</span></div><div class="art-ground"></div></div><span class="hero-corner">✦  GUILD MEMBER  ✦</span></section>
+        <section class="stats-grid" aria-label="冒險統計"><article class="stat-card"><div class="stat-icon icon-lavender">▤</div><div><span class="stat-label">進行中任務</span><div class="stat-value"><strong id="active-count">0</strong><span>件任務</span></div><small>每個等待，都有它的意義</small></div><span class="stat-decoration">✧</span></article><article class="stat-card"><div class="stat-icon icon-gold">◈</div><div><span class="stat-label">累積保住的預算</span><div class="stat-value"><span class="currency">NT$</span><strong id="saved-total">0</strong></div><small>每一次重新思考，都值得肯定</small></div><span class="stat-decoration gold-star">✦</span></article></section>
+        <section class="section-block"><div class="section-heading"><div><div class="section-eyebrow">YOUR QUESTS <span>✦</span></div><h2>今日任務 <span class="heading-count" id="quest-heading-count">0</span></h2></div><button class="text-link" data-page="tasks">查看任務圖鑑 <span>→</span></button></div><div id="hall-task-list" class="task-list"></div></section>
+        <section id="review-banner" class="review-banner hidden"><span class="review-icon">✧</span><div><strong>有任務完成冷靜期了</strong><p>花一點時間重新評估，選擇最適合自己的決定。</p></div><button class="button soft-button" data-page="tasks">前往評估 <span>→</span></button></section>
+        <footer class="page-footer"><span>✦</span> 你的每個決定，都在寫下自己的冒險故事。</footer>
+      </section>
+      <section id="page-tasks" class="page"><div class="page-title-row"><div><div class="eyebrow">QUEST JOURNAL <span class="eyebrow-line"></span> 任務管理</div><h1>任務圖鑑</h1><p class="welcome-copy">所有心動清單，都在這裡慢慢找到答案。</p></div><button class="button primary new-task-trigger">＋ 接受新任務</button></div><div class="filter-tabs" role="tablist" aria-label="任務狀態篩選"><button class="filter-tab selected" data-filter="all">全部 <span id="filter-all-count">0</span></button><button class="filter-tab" data-filter="waiting">等待中 <span id="filter-waiting-count">0</span></button><button class="filter-tab" data-filter="review">待評估 <span id="filter-review-count">0</span></button><button class="filter-tab" data-filter="purchased">已購買</button><button class="filter-tab" data-filter="abandoned">已放棄</button></div><div id="all-task-list" class="task-list"></div></section>
+      <section id="page-achievements" class="page"><div class="page-title-row"><div><div class="eyebrow">MILESTONES <span class="eyebrow-line"></span> 冒險者成就</div><h1>成就室</h1><p class="welcome-copy">每一次深思熟慮，都是值得收藏的里程碑。</p></div></div><div id="achievement-grid" class="achievement-grid"></div></section>
+      <section id="page-history" class="page"><div class="page-title-row"><div><div class="eyebrow">YOUR STORY <span class="eyebrow-line"></span> 冒險回顧</div><h1>冒險紀錄</h1><p class="welcome-copy">回頭看看那些你親自做出的選擇。</p></div></div><div class="history-summary" id="history-summary"></div><div id="history-list" class="task-list"></div></section>
+    </main>
+  </div>
+  <nav class="mobile-nav" aria-label="手機版主要導覽"><button class="active" data-page="hall"><span>⌂</span><small>大廳</small></button><button data-page="tasks"><span>▤</span><small>任務</small></button><button data-page="achievements"><span>♧</span><small>成就</small></button><button data-page="history"><span>◷</span><small>紀錄</small></button></nav>
+
+  <dialog id="task-dialog" class="task-dialog"><form id="task-form"><div class="dialog-top"><div><div class="section-eyebrow">A NEW ADVENTURE <span>✦</span></div><h2>接受新任務</h2><p>先記下這份心動，給自己一點思考的時間。</p></div><button type="button" class="icon-button dialog-close" aria-label="關閉">×</button></div><label class="field-label" for="task-name">商品名稱 <span>必填</span></label><input id="task-name" name="name" maxlength="80" placeholder="例如：淺藍色外套" required><div class="form-row"><div><label class="field-label" for="task-price">商品價格 <span>必填</span></label><div class="price-input"><span>NT$</span><input id="task-price" name="price" type="number" min="1" max="100000000" step="1" placeholder="1,280" required></div></div><div><label class="field-label" for="task-duration">冷靜期</label><select id="task-duration" name="duration"><option value="24">24 小時</option><option value="72" selected>3 天</option><option value="168">7 天</option></select></div></div><label class="field-label" for="task-url">商品網址 <span class="optional">選填</span></label><input id="task-url" name="url" type="url" maxlength="2048" placeholder="https://"><label class="field-label" for="task-note">購買原因或備註 <span class="optional">選填</span></label><textarea id="task-note" name="note" rows="3" maxlength="500" placeholder="記下你為什麼心動，之後回來看看…"></textarea><div id="form-error" class="form-error" role="alert"></div><div class="dialog-actions"><button type="button" class="button secondary-button dialog-close">再想一下</button><button type="submit" class="button primary">開始冷靜期 <span>→</span></button></div></form></dialog>
+  <dialog id="decision-dialog" class="task-dialog decision-dialog"><div class="dialog-top"><div><div class="section-eyebrow">TIME TO DECIDE <span>✦</span></div><h2 id="decision-title">重新評估</h2><p id="decision-description"></p></div><button type="button" class="icon-button dialog-close" aria-label="關閉">×</button></div><div id="decision-product" class="decision-product"></div><div class="decision-options"><button class="decision-option buy-option" data-decision="purchased"><span class="option-icon">♡</span><span><strong>決定購買</strong><small>我想清楚了，這是需要的</small></span><span class="option-arrow">→</span></button><button class="decision-option wait-option" data-decision="extend"><span class="option-icon">◷</span><span><strong>再等等看</strong><small>延長冷靜期，給自己更多時間</small></span><select id="extend-duration" aria-label="延長冷靜期"><option value="24">24 小時</option><option value="72" selected>3 天</option><option value="168">7 天</option></select></button><button class="decision-option release-option" data-decision="abandoned"><span class="option-icon">✧</span><span><strong>放下這份心動</strong><small>我決定把預算留給更重要的事</small></span><span class="option-arrow">→</span></button></div><p class="decision-kindness">不論選擇什麼，這都是你認真思考後的決定。</p></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
